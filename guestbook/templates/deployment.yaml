@@ -4,6 +4,7 @@ metadata:
   name: {{ .Release.Name }}-ui
 spec:
   replicas: {{ .Values.replicaCount }}
+  revisionHistoryLimit: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}-ui
