@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-ui
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-ui
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Nmae }}-ui
+    spec:
+      containers:
+      - name: guestbook-ui
+        image: {{ .Values.image }}
+        ports:
+        - containerPort: 80
